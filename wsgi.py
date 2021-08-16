@@ -1,4 +1,4 @@
-from svcstopapp.app import app as application
+from svcstopapp.svcstopapp import app
 
 if __name__ == "__main__":
     app.run()
