@@ -6,8 +6,8 @@ After=network.target
 User=ec2-user
 Group=nginx
 WorkingDirectory=/var/www
-Environment="PATH=/var/www/venv/bin"
-ExecStart=/var/www/venv/bin/uwsgi --ini config/svcstopapp.ini
+Environment="PATH=/var/www/bin"
+ExecStart=/var/www/bin/uwsgi --ini config/svcstopapp.ini
 
 [Install]
 WantedBy=multi-user.target
