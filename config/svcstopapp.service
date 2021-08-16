@@ -1,13 +1,13 @@
 [Unit]
-Description=uWSGI Container Server for Stop Service App
+Description=Gunicorn instance to serve scvstopapp
 After=network.target
 
 [Service]
 User=ec2-user
-Group=nginx
+Group=www-data
 WorkingDirectory=/var/www
-Environment="PATH=/var/www/bin"
-ExecStart=/var/www/bin/uwsgi --ini config/svcstopapp.ini
+Environment="PATH=/var/www/svcstopapp/svcstopappenv/bin"
+ExecStart=var/www/svcstopapp/svcstopappenv/bin/gunicorn --workers 3 --bind unix:svcstopapp.sock -m 007 wsgi
 
 [Install]
 WantedBy=multi-user.target
