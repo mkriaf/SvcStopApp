@@ -20,7 +20,7 @@ def postTesting():
         print (name)
         return render_template('out.html')
     else:
-        return redirect('/error')
+        return redirect('/error.html')
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
