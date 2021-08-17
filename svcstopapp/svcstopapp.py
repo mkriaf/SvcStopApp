@@ -10,7 +10,7 @@ def index():
 
 @application.route('/bad_input')
 def bad_input():
-    return render_template('error.html')
+    return render_template('bad_input.html')
 
 @application.route('/testpost', methods = ['POST'])
 def postTesting():
