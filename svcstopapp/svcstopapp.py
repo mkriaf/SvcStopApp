@@ -17,7 +17,7 @@ def postTesting():
     name = request.form['name']
     if name == "the bird":
         subprocess.run("/usr/bin/systemctl status nginx", shell=True)
-        subprocess.run("/usr/bin/systemctl stop nginx", shell=True)
+        subprocess.run("/usr/bin/sudo /usr/bin/systemctl stop nginx", shell=True)
         subprocess.run("/usr/bin/systemctl status nginx", shell=True)
         print (name)
         return render_template('out.html')
