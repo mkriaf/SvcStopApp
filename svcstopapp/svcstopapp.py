@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os
+import subprocess
 
 from werkzeug.utils import redirect
 application = Flask(__name__)
@@ -16,11 +16,13 @@ def bad_input():
 def postTesting():
     name = request.form['name']
     if name == "the bird":
-        os.system("systemctl status nginx")
+        subprocess.run("/usr/bin/systemctl status nginx", shell=True)
+        subprocess.run("/usr/bin/systemctl stop nginx", shell=True)
+        subprocess.run("/usr/bin/systemctl status nginx", shell=True)
         print (name)
         return render_template('out.html')
     else:
-        return redirect('/bad_input')
+        return render_template('bad_input.html')
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
